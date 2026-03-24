@@ -24,6 +24,7 @@ freeciv-gtk3.22, freeciv-gtk4, freeciv-sdl2, freeciv-sdl3, freeciv-qt \
 [ \-l|\-\-log \fIfilename\fP ] \
 [ \-M|\-\-Meta \fIURL\fP ] \
 [ \-n|\-\-name \fIname\fP ] \
+[ \-\-password \fIpassword\fP ] \
 [ \-p|\-\-port \fIport\fP ] \
 [ \-P|\-\-Plugin \fIstring\fP ] \
 [ \-r|\-\-read \fIfilename\fP ] \
@@ -155,6 +156,11 @@ standard metaserver run by the Freeciv maintainers will be used.
 Specifies the user name (\fIname\fP) to use to connect to the server. This
 option is critical when reconnecting to a game. Please note that you might
 need to quote your username.
+.TP
+.BI "\-\-password \fIpassword\fP"
+Specifies the password to use when the server requests authentication. This is
+most useful with \fB\-\-autoconnect\fP to provide all connection details from
+the command line.
 .TP
 .BI "\-p \fIport\fP, \-\-port \fIport\fP"
 Specifies the server \fIport\fP to connect to. By default this is 5556, if in
