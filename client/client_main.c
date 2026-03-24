@@ -452,6 +452,10 @@ int client_main(int argc, char *argv[], bool postpone_tileset)
                   /* TRANS: "port" is exactly what user must type, do not translate. */
                   _("port PORT"),
                   _("Connect to server port PORT (usually with -a)"));
+      cmdhelp_add(help, "w",
+                  /* TRANS: "password" is exactly what user must type, do not translate. */
+                  _("password PASSWORD"),
+                  _("Use PASSWORD for server authentication (usually with -a)"));
       cmdhelp_add(help, "P",
                   /* TRANS: "Plugin" is exactly what user must type, do not translate. */
                   _("Plugin PLUGIN"),
@@ -541,6 +545,9 @@ int client_main(int argc, char *argv[], bool postpone_tileset)
       free(option);
     } else if ((option = get_option_malloc("--server", argv, &i, argc, FALSE))) {
       sz_strlcpy(server_host, option);
+      free(option);
+    } else if ((option = get_option_malloc("--password", argv, &i, argc, FALSE))) {
+      sz_strlcpy(fc_password, option);
       free(option);
     } else if (is_option("--autoconnect", argv[i])) {
       auto_connect = TRUE;
