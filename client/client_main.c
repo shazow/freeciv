@@ -448,6 +448,10 @@ int client_main(int argc, char *argv[], bool postpone_tileset)
                   /* TRANS: "name" is exactly what user must type, do not translate. */
                   _("name NAME"),
                   _("Use NAME as username on server"));
+      cmdhelp_add(help, NULL, "password",
+                  /* TRANS: "password" is exactly what user must type, do not translate. */
+                  _("password PASSWORD"),
+                  _("Use PASSWORD for server authentication"));
       cmdhelp_add(help, "p",
                   /* TRANS: "port" is exactly what user must type, do not translate. */
                   _("port PORT"),
@@ -517,6 +521,9 @@ int client_main(int argc, char *argv[], bool postpone_tileset)
       auto_spawn = TRUE;
     } else if ((option = get_option_malloc("--name", argv, &i, argc, FALSE))) {
       sz_strlcpy(user_name, option);
+      free(option);
+    } else if ((option = get_option_malloc("--password", argv, &i, argc, FALSE))) {
+      sz_strlcpy(fc_password, option);
       free(option);
     } else if ((option = get_option_malloc("--Meta", argv, &i, argc, FALSE))) {
       sz_strlcpy(metaserver, option);
